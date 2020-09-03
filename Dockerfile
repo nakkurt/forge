@@ -54,6 +54,9 @@ RUN make static BUILD_FLAGS="$BUILD_FLAGS" && \
 
 FROM base
 
+# Required for `skaffold debug` to auto-detect runtime
+ENV GOTRACEBACK=single
+
 RUN apk add --no-cache fuse3 git pigz
 
 ARG ROOTLESSKIT_VERSION=v0.10.0
